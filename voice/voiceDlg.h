@@ -11,18 +11,18 @@
 // CvoiceDlg 对话框
 class CvoiceDlg : public CDialogEx
 {
-// 构造
+	// 构造
 public:
 	CvoiceDlg(CWnd* pParent = NULL);	// 标准构造函数
 
-// 对话框数据
+	// 对话框数据
 	enum { IDD = IDD_VOICE_DIALOG };
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
 
 
-// 实现
+	// 实现
 protected:
 	HICON m_hIcon;
 

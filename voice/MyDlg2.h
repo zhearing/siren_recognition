@@ -17,7 +17,7 @@ public:
 	MyDlg2(CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~MyDlg2();
 
-// 对话框数据
+	// 对话框数据
 	enum { IDD = IDD_DIALOG2 };
 
 protected:
@@ -50,5 +50,5 @@ public:
 	afx_msg void OnBnClickedOnlinewaveplay();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void DrawMoving();
-	afx_msg void AllocArray(double* ptr,size_t length);
+	afx_msg void AllocArray(double* ptr, size_t length);
 };

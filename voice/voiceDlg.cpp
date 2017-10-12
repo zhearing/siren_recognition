@@ -19,13 +19,13 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 对话框数据
+	// 对话框数据
 	enum { IDD = IDD_ABOUTBOX };
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
-// 实现
+	// 实现
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -101,17 +101,17 @@ BOOL CvoiceDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 	CRect tabRect;
-	m_tab.InsertItem(0,_T("离线"));
-	m_tab.InsertItem(1,_T("在线"));
-	mdg1.Create(IDD_DIALOG1,&m_tab);
-	mdg2.Create(IDD_DIALOG2,&m_tab);
+	m_tab.InsertItem(0, _T("离线"));
+	m_tab.InsertItem(1, _T("在线"));
+	mdg1.Create(IDD_DIALOG1, &m_tab);
+	mdg2.Create(IDD_DIALOG2, &m_tab);
 	m_tab.GetClientRect(&tabRect);
-	tabRect.left += 1;                  
-	tabRect.right -= 1;   
-	tabRect.top += 25;   
+	tabRect.left += 1;
+	tabRect.right -= 1;
+	tabRect.top += 25;
 	tabRect.bottom -= 1;
 	mdg1.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);
-	mdg2.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width()*2, tabRect.Height(), SWP_HIDEWINDOW);
+	mdg2.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width() * 2, tabRect.Height(), SWP_HIDEWINDOW);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -174,24 +174,24 @@ void CvoiceDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 	CRect tabRect;    // 标签控件客户区的Rect   
 
 	// 获取标签控件客户区Rect，并对其调整，以适合放置标签页   
-	m_tab.GetClientRect(&tabRect);   
-	tabRect.left += 1;   
-	tabRect.right -= 1;   
-	tabRect.top += 25;   
-	tabRect.bottom -= 1;   
+	m_tab.GetClientRect(&tabRect);
+	tabRect.left += 1;
+	tabRect.right -= 1;
+	tabRect.top += 25;
+	tabRect.bottom -= 1;
 
-	switch(m_tab.GetCurSel())
+	switch (m_tab.GetCurSel())
 	{
-	case 0:   
-		mdg1.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);   
-		mdg2.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width()*2, tabRect.Height(), SWP_HIDEWINDOW);   
-		break;   
-		
-	case 1:   
-		mdg1.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);   
-		mdg2.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width()*2, tabRect.Height(), SWP_SHOWWINDOW);   
-		break;   
-	default:   
-		break;   
+	case 0:
+		mdg1.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);
+		mdg2.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width() * 2, tabRect.Height(), SWP_HIDEWINDOW);
+		break;
+
+	case 1:
+		mdg1.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
+		mdg2.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width() * 2, tabRect.Height(), SWP_SHOWWINDOW);
+		break;
+	default:
+		break;
 	}
 }

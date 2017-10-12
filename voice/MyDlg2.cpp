@@ -19,17 +19,17 @@
 IMPLEMENT_DYNAMIC(MyDlg2, CDialogEx)
 
 MyDlg2::MyDlg2(CWnd* pParent /*=NULL*/)
-	: CDialogEx(MyDlg2::IDD, pParent),num(0),m_c_arrayLength(1000),p(0)
+: CDialogEx(MyDlg2::IDD, pParent), num(0), m_c_arrayLength(1000), p(0)
 {
 	//难道所有变量都要初始化一遍？
-	for(size_t i=0;i<m_c_arrayLength;++i)
+	for (size_t i = 0; i < m_c_arrayLength; ++i)
 	{
-		m_ChartArray[i]=0;
-		m_x[i]=i;
+		m_ChartArray[i] = 0;
+		m_x[i] = i;
 	}
-	VoiceData=new double[BUFFER_SIZE];
-	for(size_t i=0;i<BUFFER_SIZE;++i)
-		VoiceData[i]=sin((double)i)*sin((double)i);
+	VoiceData = new double[BUFFER_SIZE];
+	for (size_t i = 0; i < BUFFER_SIZE; ++i)
+		VoiceData[i] = sin((double)i)*sin((double)i);
 }
 
 MyDlg2::~MyDlg2()
@@ -73,37 +73,37 @@ END_MESSAGE_MAP()
 //}
 bool isIden(false);
 double MFCC[GOOD_FRAME_NUM][D];
-int MyTemp=-1;//与count对应,用来指示是否有新的数据出现
+int MyTemp = -1;//与count对应,用来指示是否有新的数据出现
 
-void MyDlg2::AllocArray(double* ptr,size_t length)
+void MyDlg2::AllocArray(double* ptr, size_t length)
 {
-	for(size_t i=0;i<length;i++)
+	for (size_t i = 0; i < length; i++)
 	{
-		ptr[i]=VoiceData[num+i+84];//[]中的数值需要改  不然范围限制在84-2082了
+		ptr[i] = VoiceData[num + i + 84];//[]中的数值需要改  不然范围限制在84-2082了
 	}
 }
 void MyDlg2::DrawMoving()
 {
 	pLineSerie2->ClearSerie();
 	//Byte2Double(pRawVoice,VoiceData);
-	AllocArray(m_ChartArray,m_c_arrayLength);
-	LeftMoveArray(m_x,m_c_arrayLength,m_count);
-	pLineSerie2->AddPoints(m_x,m_ChartArray,m_c_arrayLength);
+	AllocArray(m_ChartArray, m_c_arrayLength);
+	LeftMoveArray(m_x, m_c_arrayLength, m_count);
+	pLineSerie2->AddPoints(m_x, m_ChartArray, m_c_arrayLength);
 }
 
 void MyDlg2::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	audio=AfxBeginThread(waveIn,NULL);
+	audio = AfxBeginThread(waveIn, NULL);
 	ifstream fin("test.txt");
-	if(!fin)
+	if (!fin)
 	{
 		AfxMessageBox(_T("load model failed!"));
-		return ;
+		return;
 	}
-	for(int i=0;i<10;i++)
-		GMMCalloc(gmm+i,16);
-	load(fin,gmm);
+	for (int i = 0; i < 10; i++)
+		GMMCalloc(gmm + i, 16);
+	load(fin, gmm);
 	fin.close();
 	//HANDLE handle=CreateThread(NULL,0,waveIn,NULL,0,NULL);
 	//WaitForSingleObject(handle,INFINITE);
@@ -114,8 +114,8 @@ void MyDlg2::OnBnClickedButton4()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	audio->SuspendThread();
-	IsRecordClosed=TRUE;
-	isIden=false;//关闭时识别也关闭
+	IsRecordClosed = TRUE;
+	isIden = false;//关闭时识别也关闭
 	WaveInStop();
 	//AfxMessageBox(_T("suspend!"));
 }
@@ -125,17 +125,17 @@ void MyDlg2::OnBnClickedButton2()
 	// TODO: 在此添加控件通知处理程序代码
 	//while(!isIden)
 	/*{*/
-		AfxMessageBox(_T("start！"));
-		isIden=true;
-		/*for(int i=0;i<10;i++)
-		{
-		if(!voiceToMFCC(pBuffer[i],BUFFER_SIZE,myMfcc[i],GOOD_FRAME_NUM))
-		{
-		for(int j=i;j>=0;j--)
-		free(pBuffer[i]);
-		return;
-		}
-		}*/
+	AfxMessageBox(_T("start！"));
+	isIden = true;
+	/*for(int i=0;i<10;i++)
+	{
+	if(!voiceToMFCC(pBuffer[i],BUFFER_SIZE,myMfcc[i],GOOD_FRAME_NUM))
+	{
+	for(int j=i;j>=0;j--)
+	free(pBuffer[i]);
+	return;
+	}
+	}*/
 	//}
 }
 
@@ -143,13 +143,13 @@ void MyDlg2::OnBnClickedButton2()
 void MyDlg2::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	isIden=false;
+	isIden = false;
 }
 
 void MyDlg2::OnBnClickedOnlineplay()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	AfxBeginThread(WaveOutOnline,NULL);
+	AfxBeginThread(WaveOutOnline, NULL);
 }
 
 
@@ -165,43 +165,43 @@ BOOL MyDlg2::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// TODO:  在此添加额外的初始化
-	CRect rect,rectChart;
+	CRect rect, rectChart;
 	GetDlgItem(IDC_OnlineWavePlay)->GetWindowRect(&rect);
-	rect=CRect(30,53,rect.left,rect.bottom);
+	rect = CRect(30, 53, rect.left, rect.bottom);
 	ScreenToClient(rect);
-	rectChart=rect;
-	rectChart.top=rect.top;
-	rectChart.bottom=rectChart.top+rect.Height();
-	m_ChartCtrl2.Create(this,rectChart,IDC_OnlineWavePlay);
+	rectChart = rect;
+	rectChart.top = rect.top;
+	rectChart.bottom = rectChart.top + rect.Height();
+	m_ChartCtrl2.Create(this, rectChart, IDC_OnlineWavePlay);
 	m_ChartCtrl2.ShowWindow(SW_SHOWNORMAL);
-	CChartAxis* pAxis=NULL;
-	pAxis=m_ChartCtrl2.CreateStandardAxis(CChartCtrl::BottomAxis);
+	CChartAxis* pAxis = NULL;
+	pAxis = m_ChartCtrl2.CreateStandardAxis(CChartCtrl::BottomAxis);
 	pAxis->SetAutomatic(true);
-	pAxis=m_ChartCtrl2.CreateStandardAxis(CChartCtrl::LeftAxis);
+	pAxis = m_ChartCtrl2.CreateStandardAxis(CChartCtrl::LeftAxis);
 	pAxis->SetAutomatic(true);
 
 	TChartString str1;
-	str1=_T("波形显示");
+	str1 = _T("波形显示");
 	m_ChartCtrl2.GetTitle()->AddString(str1);
-	str1=_T("采样值");
+	str1 = _T("采样值");
 	m_ChartCtrl2.GetLeftAxis()->GetLabel()->SetText(str1);
-	str1=_T("采样点");
+	str1 = _T("采样点");
 	m_ChartCtrl2.GetBottomAxis()->GetLabel()->SetText(str1);
 
 	m_ChartCtrl2.EnableRefresh(false);
 
-	double x[1000],y[1000];
-	for(int i=0;i<1000;i++)
+	double x[1000], y[1000];
+	for (int i = 0; i < 1000; i++)
 	{
-		x[i]=i;
-		y[i]=sin(float(i));
+		x[i] = i;
+		y[i] = sin(float(i));
 	}
 
 
 	m_ChartCtrl2.RemoveAllSeries();
-	pLineSerie2=m_ChartCtrl2.CreateLineSerie();
+	pLineSerie2 = m_ChartCtrl2.CreateLineSerie();
 	pLineSerie2->SetSeriesOrdering(poNoOrdering);
-	pLineSerie2->AddPoints(x,y,1000);
+	pLineSerie2->AddPoints(x, y, 1000);
 	pLineSerie2->SetName(_T("第一条线"));
 	m_ChartCtrl2.EnableRefresh(true);
 
@@ -215,16 +215,16 @@ void MyDlg2::OnBnClickedOnlinewaveplay()//出错有可能是因为在一段数据还没有显示完
 	//while(1)
 	//{
 
-	
+
 	// TODO: 在此添加控件通知处理程序代码
 	//while(p==0&&DataFilled)//&&MyTemp!=MyCount)
 	{
-		DataFilled=false;
+		DataFilled = false;
 		KillTimer(1);
 
-		int number=MyCount-1;//刚刚接收完的数据段的标号
-		if(number==-1)//0-9转9-8//如果是最初的0 则不能进行使用  需要设置新的条件
-			number=9;
+		int number = MyCount - 1;//刚刚接收完的数据段的标号
+		if (number == -1)//0-9转9-8//如果是最初的0 则不能进行使用  需要设置新的条件
+			number = 9;
 		//pBuffer[i]为空
 		//if(pBuffer[number]!=NULL)
 		//	Byte2Double(pBuffer[number],VoiceData);
@@ -235,23 +235,23 @@ void MyDlg2::OnBnClickedOnlinewaveplay()//出错有可能是因为在一段数据还没有显示完
 		/*ZeroMemory(&m_ChartArray,sizeof(double)*m_c_arrayLength);
 		for(size_t i=0;i<m_c_arrayLength;++i)
 		{
-			m_x[i]=i;
+		m_x[i]=i;
 		}*/
-		if(pRawVoice!=NULL)
-			Byte2Double(pRawVoice,VoiceData);
+		if (pRawVoice != NULL)
+			Byte2Double(pRawVoice, VoiceData);
 		else
 		{
 			AfxMessageBox(_T("No voice data"));
 			return;
 		}
-		ZeroMemory(&m_ChartArray,sizeof(double)*m_c_arrayLength);
-		for(size_t i=0;i<m_c_arrayLength;++i)
+		ZeroMemory(&m_ChartArray, sizeof(double)*m_c_arrayLength);
+		for (size_t i = 0; i < m_c_arrayLength; ++i)
 		{
-			m_x[i]=i;
+			m_x[i] = i;
 		}
- 		m_count=m_c_arrayLength;
+		m_count = m_c_arrayLength;
 		pLineSerie2->ClearSerie();
-		p=SetTimer(1,0,NULL);
+		p = SetTimer(1, 0, NULL);
 		//Sleep(100);
 	}
 	/*if(p==1)
@@ -263,22 +263,22 @@ void MyDlg2::OnBnClickedOnlinewaveplay()//出错有可能是因为在一段数据还没有显示完
 void MyDlg2::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	if(1==nIDEvent)
+	if (1 == nIDEvent)
 	{
 		++m_count;
 		++num;
-		if(num%1000==0)//横坐标重新从0开始
+		if (num % 1000 == 0)//横坐标重新从0开始
 		{
-			for(size_t i=0;i<m_c_arrayLength;++i)
+			for (size_t i = 0; i < m_c_arrayLength; ++i)
 			{
-				m_x[i]=i;
+				m_x[i] = i;
 			}
-			m_count=m_c_arrayLength;
+			m_count = m_c_arrayLength;
 		}
-		if(num==BUFFER_SIZE)
-			num=0;
+		if (num == BUFFER_SIZE)
+			num = 0;
 		DrawMoving();
-		p=0;
+		p = 0;
 		//OnBnClickedOnlinewaveplay();
 	}
 

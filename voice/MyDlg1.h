@@ -18,7 +18,7 @@ public:
 	MyDlg1(CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~MyDlg1();
 
-// 对话框数据
+	// 对话框数据
 	enum { IDD = IDD_DIALOG1 };
 
 protected:
@@ -29,7 +29,7 @@ public:
 	afx_msg void OnBnClickedButton1();
 	bool opened;
 	//bool isCalloced;
-	
+
 	double MFCC[GOOD_FRAME_NUM][D];
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton4();
@@ -44,13 +44,14 @@ public:
 	unsigned int num;
 	double* VoiceData;
 
-	
+
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedClickedbuttonrunning();
 	afx_msg void DrawMoving();
-	afx_msg void AllocArray(double* ptr,size_t length);
+	afx_msg void AllocArray(double* ptr, size_t length);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	CEdit m_edit1;
+	afx_msg void OnBnClickedButton3();
 };
 
 
