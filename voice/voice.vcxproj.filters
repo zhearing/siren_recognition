@@ -60,21 +60,6 @@
     <ClInclude Include="MyDlg2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\FromTest\cluster.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\FromTest\FFT2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\FromTest\gmm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\FromTest\mfcc.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\FromTest\WaveIn.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ChartCtrl\ChartSerie.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -168,6 +153,21 @@
     <ClInclude Include="ChartCtrl\ChartStandardAxis.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FromTest\cluster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FromTest\FFT2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FromTest\gmm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FromTest\mfcc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FromTest\WaveIn.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="voice.cpp">
@@ -183,21 +183,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MyDlg2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\FromTest\cluster.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\FromTest\FFT2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\FromTest\gmm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\FromTest\mfcc.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\FromTest\audiocpy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ChartCtrl\ChartLineSerie.cpp">
@@ -267,6 +252,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ChartCtrl\ChartScrollBar.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FromTest\audiocpy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FromTest\cluster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FromTest\FFT2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FromTest\gmm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FromTest\mfcc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

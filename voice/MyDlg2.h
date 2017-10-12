@@ -1,10 +1,10 @@
 #pragma once
 
-#include "..\FromTest\WaveIn.h"
-#include "..\FromTest\mfcc.h"
-#include "..\FromTest\gmm.h"
-#include "..\FromTest\cluster.h"
-#include "..\FromTest\FFT2.h"
+#include "FromTest\WaveIn.h"
+#include "FromTest\mfcc.h"
+#include "FromTest\gmm.h"
+#include "FromTest\cluster.h"
+#include "FromTest\FFT2.h"
 #include "ChartCtrl\ChartCtrl.h"
 
 

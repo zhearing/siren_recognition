@@ -44,6 +44,11 @@ UINT waveIn(LPVOID lpParam)
 		(DWORD)(WaveInCallback),NULL, CALLBACK_FUNCTION);
 	if(mmr != MMSYSERR_NOERROR)
 		return 0;// false;
+
+	WAVEINCAPS wic;
+	waveInGetDevCaps((UINT_PTR)hWaveIn, &wic, sizeof(WAVEINCAPS));
+	AfxMessageBox(wic.szPname);
+
 	DWORD bufsize=BUFFER_SIZE;
 	for(int i=0;i<10;++i)
 	{
