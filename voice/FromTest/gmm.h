@@ -7,7 +7,7 @@
 文件实现功能: 高斯混合模型过程相关函数、变量的声明
 *******************************************************************************/
 #pragma once
-#include "..\FromTest\mfcc.h"
+#include "FromTest\mfcc.h"
 #include <fstream>
 #include <vector>
 #include <iostream>

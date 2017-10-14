@@ -2,10 +2,10 @@
 #include<windows.h>
 #include<mmsystem.h>
 #include<iostream>
-#include "..\FromTest\mfcc.h"
-#include "..\FromTest\gmm.h"
-#include "..\FromTest\cluster.h"
-#include "..\FromTest\FFT2.h"
+#include "FromTest\mfcc.h"
+#include "FromTest\gmm.h"
+#include "FromTest\cluster.h"
+#include "FromTest\FFT2.h"
 using namespace std;
 
 #pragma comment(lib, "winmm.lib")   

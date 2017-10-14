@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "..\FromTest\WaveIn.h"//"F:\VS2008\test\test\WaveIn.h"
+#include "FromTest\WaveIn.h"//"F:\VS2008\test\test\WaveIn.h"
 
 static INT NUMBER=0;
 WAVEHDR* addbase=NULL;
@@ -45,9 +45,9 @@ UINT waveIn(LPVOID lpParam)
 	if(mmr != MMSYSERR_NOERROR)
 		return 0;// false;
 
-	WAVEINCAPS wic;
-	waveInGetDevCaps((UINT_PTR)hWaveIn, &wic, sizeof(WAVEINCAPS));
-	AfxMessageBox(wic.szPname);
+	//WAVEINCAPS wic;
+	//waveInGetDevCaps((UINT_PTR)hWaveIn, &wic, sizeof(WAVEINCAPS));
+	//AfxMessageBox(wic.szPname);
 
 	DWORD bufsize=BUFFER_SIZE;
 	for(int i=0;i<10;++i)
