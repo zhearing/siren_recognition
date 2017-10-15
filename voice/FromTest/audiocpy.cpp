@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "FromTest\WaveIn.h"//"F:\VS2008\test\test\WaveIn.h"
+#include "WaveIn.h"//"F:\VS2008\test\test\WaveIn.h"
 
 static INT NUMBER=0;
 WAVEHDR* addbase=NULL;

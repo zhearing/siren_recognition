@@ -9,7 +9,7 @@
 #pragma once
 #include <string.h>
 #include <float.h>
-#include "FromTest\FFT2.h"
+#include "FFT2.h"
 
 
 #define SIGNAL_TIME 5       //!< 训练信号持续时间(s)
