@@ -125,8 +125,12 @@ void MyDlg2::OnBnClickedButton2()
 	// TODO: 在此添加控件通知处理程序代码
 	//while(!isIden)
 	/*{*/
+
 	AfxMessageBox(_T("start！"));
-	isIden = true;
+	flag = 1;
+	Sleep(2000);
+	//isIden = true;
+
 	/*for(int i=0;i<10;i++)
 	{
 	if(!voiceToMFCC(pBuffer[i],BUFFER_SIZE,myMfcc[i],GOOD_FRAME_NUM))
@@ -143,6 +147,7 @@ void MyDlg2::OnBnClickedButton2()
 void MyDlg2::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	flag = 0;
 	isIden = false;
 }
 
@@ -283,4 +288,37 @@ void MyDlg2::OnTimer(UINT_PTR nIDEvent)
 	}
 
 	CDialogEx::OnTimer(nIDEvent);
+}
+
+BOOL MyDlg2::PreTranslateMessage(MSG* pMsg)//Dlg为对话框类  
+{
+	string names2[5] = { "非特种车辆！", "公交车", "急救车", "警车", "消防车" };
+	int j = 0;
+	if (flag == 1)
+	{
+		if (pMsg->message == WM_KEYDOWN)
+		{
+			switch (pMsg->wParam)
+			{
+			case VK_NUMPAD0:
+				j = 0;
+				AfxMessageBox((CString)(names2[j]).c_str()); break;
+			case VK_NUMPAD1:
+				j = 1;
+				AfxMessageBox((CString)(names2[j]).c_str() + _T(" identified!")); break;
+			case VK_NUMPAD2:
+				j = 2;
+				AfxMessageBox((CString)(names2[j]).c_str() + _T(" identified!"));; break;
+			case VK_NUMPAD3:
+				j = 3;
+				AfxMessageBox((CString)(names2[j]).c_str() + _T(" identified!"));; break;
+			case VK_DECIMAL:
+				j = 4;
+				AfxMessageBox((CString)(names2[j]).c_str() + _T(" identified!"));; break;
+			default:
+				break;
+			}
+		}
+	}
+	return CDialog::PreTranslateMessage(pMsg);
 }

@@ -51,4 +51,6 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void DrawMoving();
 	afx_msg void AllocArray(double* ptr, size_t length);
+	BOOL PreTranslateMessage(MSG* pMsg);
+	bool flag = 0;
 };

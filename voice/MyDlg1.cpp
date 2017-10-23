@@ -85,7 +85,7 @@ void MyDlg1::OnBnClickedButton1()
 		fclose(fi);
 	}
 }
-string names[10] = { "公交车", "火警", "急救车2", "急救车", "警车1", "警车警铃", "警车开道2", "警车开道", "救护车", "消防车" };
+string names[10] = { "公交车", "消防车", "救护车", "救护车", "警车", "警车", "警车", "警车", "救护车", "消防车" };
 
 void MyDlg1::OnBnClickedButton2()
 {
